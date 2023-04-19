@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>To-Do List App</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<br/>
+<div class="form">
+    <p>Special Exhibition To-Do List</p>
+
+<input type="text" id="box" value="" class="text" placeholder="Type here, what to do"/>
+<br/>
+<input type="button" value="Add item" onclick="addItem();" class="btn1"/>
+<br/>
+<div id="list">
+
+</div> <br/>
+</div>
+<script>
+    function addItem() {
+        var newItem = document.createElement("div");
+        newItem.innerHTML = document.getElementById("box").value;
+        var checkButton = document.createElement("input");
+        checkButton.type = "checkbox";
+        var removeButton = document.createElement("button");
+
+        removeButton.innerHTML = "remove";
+        removeButton.onclick = function() {
+            removeItem(newItem);
+        };
+
+        newItem.appendChild(checkButton);
+
+        
+        newItem.appendChild(removeButton);
+        document.getElementById("list").appendChild(newItem);
+    }
+    
+    function removeItem(item) {
+        item.parentNode.removeChild(item); 
+    }
+</script>
+</body>
+</html>
